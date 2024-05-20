@@ -17,15 +17,17 @@ const Search = ({ getMovies = Function.prototype, defaultValue }) => {
     
     return (
         <div className="search mb-3">
-            <input 
-                className="form-control mb-3" 
-                type="search" 
-                placeholder="Search" 
-                value={search}
-                onChange={(ev) => setSearch(ev.target.value)}
-                onKeyDown={handleKey}
-            />
-            <button className="btn btn-sm btn-primary" onClick={() => getMovies(search, type)}>Search</button>
+            <div className="input-group mb-3">
+                <input 
+                    className="form-control" 
+                    type="search" 
+                    placeholder="Search" 
+                    value={search}
+                    onChange={(ev) => setSearch(ev.target.value)}
+                    onKeyDown={handleKey}
+                />
+                <button className="btn btn-sm btn-primary" onClick={() => getMovies(search, type)}>Search</button>
+            </div>
             <div className="form-check form-check-inline">
                 <input className="form-check-input" type="radio" name="type" id="all" data-type="all" checked={type === 'all'} onChange={handleFilter}/>
                 <label className="form-check-label text-white" htmlFor="all">All</label>
